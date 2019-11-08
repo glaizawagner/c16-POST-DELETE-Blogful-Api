@@ -24,3 +24,15 @@ Run the tests `npm test`
 ## Deploying
 
 When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+
+## Seed the Database
+
+psql -U dunder_mifflin -d blogful -f ./seeds/seed.blogful_articles.sql
+
+## Create a blogful-test database owned by the dunder_mifflin user
+createdb -U dunder_mifflin blogful-test
+
+## Update .env without password(first) and with password(second)
+TEST_DB_URL="postgresql://dunder_mifflin@localhost/blogful-test"
+
+TEST_DB_URL=postgresql://USERNAME:PASSWORD@localhost....
